@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+
+        android:title="Home"/>
+    <item
+        android:id="@+id/donate"
+        android:enabled="true"
+        android:icon="@drawable/ic_care"
+        android:title="Donate"/>
+    <item
+        android:id="@+id/logs"
+        android:enabled="true"
+        android:icon="@drawable/ic_log_file_format"
+        android:title="Log"/>
+    <item
+        android:id="@+id/account"
+        android:enabled="true"
+        android:icon="@drawable/ic_user"
+        android:title="Account"/>
+</menu>

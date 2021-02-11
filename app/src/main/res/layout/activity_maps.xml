@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/confirm_address_map_wrapper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="8dp">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        tools:context=".donate.MapsActivity" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/confirm_address_map_custom_marker"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_above="@+id/view"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_placeholder_2_" />
+
+    <Button
+        android:id="@+id/btnSetLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="55dp"
+        android:fontFamily="@font/roboto_regular"
+        android:paddingRight="55dp"
+        android:layout_marginBottom="16dp"
+        android:layout_alignBottom="@id/map"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorAddress"
+        android:foregroundGravity="bottom"
+        android:textColor="@color/white"
+        android:text="set location" />
+
+</RelativeLayout>

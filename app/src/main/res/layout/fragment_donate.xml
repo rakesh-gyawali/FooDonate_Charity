@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".donate.DonateFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            app:title="Donate"
+            app:titleTextColor="@color/black"
+            app:titleMarginTop="0dp"
+            app:titleMarginBottom="0dp"
+            app:titleTextAppearance="@style/TextAppearance.App.Headline6"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            >
+            <LinearLayout
+                android:id="@+id/llInst"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Enter food details "
+                    android:textSize="18dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="16dp"
+                    android:textColor="@color/colorPrimary"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Food type (Select at least one of them)"
+                    android:textColor="@color/black"
+                    />
+
+            </LinearLayout>
+            <HorizontalScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llInst"
+            >
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:singleLine="true"
+                >
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_vegetable"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipBackgroundColor="@color/colorGrey"
+                    android:textColor="@color/white"
+                    app:chipStrokeColor="@color/colorGrey"
+                    app:chipStrokeWidth="1dp"
+                    app:checkedIconTint="@color/white"
+                    android:text="Vegetable"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_cookedFood"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipBackgroundColor="@color/colorGrey"
+                    android:textColor="@color/white"
+                    app:checkedIconTint="@color/white"
+                    android:text="Cooked Food"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_packed_food"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipBackgroundColor="@color/colorGrey"
+                    android:textColor="@color/white"
+                    app:checkedIconTint="@color/white"
+                    android:text="Packed Food"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_fruit"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipBackgroundColor="@color/colorGrey"
+                    android:textColor="@color/white"
+                    app:checkedIconTint="@color/white"
+                    android:text="Fruit"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_grain_bean_rice"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipBackgroundColor="@color/colorGrey"
+                    android:textColor="@color/white"
+                    app:checkedIconTint="@color/white"
+                    android:text="Grain/Bean/Rice"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_dairy"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipBackgroundColor="@color/colorGrey"
+                    android:textColor="@color/white"
+                    app:checkedIconTint="@color/white"
+                    android:text="Dairy"/>
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chip_others"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:chipBackgroundColor="@color/colorGrey"
+                    android:textColor="@color/white"
+                    app:checkedIconTint="@color/white"
+                    android:text="Others"/>
+
+             </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tfEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Total quantity in Kg *"
+                android:layout_marginBottom="16dp"
+                app:startIconDrawable="@drawable/ic_measure_1_"
+                android:layout_below="@+id/scrollView"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtQuantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tfCharity"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_below="@+id/tfEmail"
+                android:hint="Select charity to donate *"
+                android:layout_marginBottom="16dp"
+                app:startIconDrawable="@drawable/ic_organization"
+                >
+                <AutoCompleteTextView
+                    android:id="@+id/actvCharity"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <LinearLayout
+                android:id="@+id/llDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tfCharity"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tfDate"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Expiry date, if any"
+
+                    app:startIconDrawable="@drawable/ic_calendar">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="true"
+                        android:focusable="false"
+                        android:longClickable="false"
+                        android:editable="false"
+                         />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+            <Button
+                android:id="@+id/btnNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Next"
+                android:layout_below="@+id/llDate"
+                android:layout_marginTop="16dp" />
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

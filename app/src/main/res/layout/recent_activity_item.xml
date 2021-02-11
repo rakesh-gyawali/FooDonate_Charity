@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="1dp"
+    android:outlineProvider="none">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="6dp"
+        app:cardElevation="0dp"
+        app:strokeColor="@color/colorGreyBackground"
+        app:strokeWidth="1dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imgActivity"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/act1" />
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:layout_below="@id/imgActivity"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/charity_logo1" />
+
+            <TextView
+                android:id="@+id/tvActivityName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imgActivity"
+                android:layout_marginTop="4dp"
+                android:layout_toRightOf="@+id/imgLogo"
+                android:autoSizeMaxTextSize="15sp"
+                android:autoSizeMinTextSize="13sp"
+                android:autoSizeTextType="uniform"
+                android:text="Name"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvDate"
+                android:layout_toRightOf="@+id/imgLogo"
+                android:autoSizeMaxTextSize="12sp"
+                android:autoSizeMinTextSize="10sp"
+                android:autoSizeTextType="uniform"
+                android:text="Date"
+                android:textColor="@color/secondary_text" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvActivityName"
+                android:layout_toRightOf="@+id/imgLogo"
+                android:autoSizeMaxTextSize="12sp"
+                android:autoSizeMinTextSize="10sp"
+                android:autoSizeTextType="uniform"
+                android:text="Address"
+                android:textColor="@color/secondary_text" />
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+</RelativeLayout>

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="#F5F5F5"
+    tools:context=".WelcomeLocation">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/nepal"
+        android:background="#F5F5F5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="38dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.169">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:elevation="4dp">
+
+            <TextView
+                android:id="@+id/tvInst"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingTop="24dp"
+                android:paddingBottom="24dp"
+                android:text="Where should we come to pick up ?"
+                android:textColor="@color/black"
+                android:textSize="16dp" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_below="@+id/tvInst"
+                android:layout_marginBottom="8dp"
+                android:background="@color/colorGreyBackground" />
+
+            <LinearLayout
+                android:id="@+id/imgLL"
+                android:layout_width="20dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:layout_below="@id/line"
+
+                >
+                <ImageView
+                    android:id="@+id/imgHolder"
+                    android:layout_width="20dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="16dp"
+                    android:src="@drawable/ic_placeholder"
+                    android:layout_below="@id/line"
+                    />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llMyLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp"
+                android:layout_below="@id/line"
+                android:layout_toRightOf="@+id/imgLL"
+                >
+                <TextView
+                    android:id="@+id/tvMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MY LOCATION (TAP TO CHANGE)"
+                    android:layout_toRightOf="@id/imgHolder"
+                    android:layout_below="@id/line"
+                    android:textColor="@color/black" />
+                <TextView
+                    android:id="@+id/tvAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MAP LOCATION (TAP TO CHANGE)"
+                    android:layout_toRightOf="@id/imgHolder"
+                    android:layout_below="@id/tvMap"
+                    android:textSize="12dp"
+                    android:textColor="@color/secondary_text" />
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/imgCheck"
+                android:layout_width="25dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:visibility="invisible"
+                android:src="@drawable/ic_correct"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_below="@+id/line"
+                android:layout_toRightOf="@id/llMyLocation"
+                />
+
+            <Button
+                android:id="@+id/btnConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgLL"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="Confirm" />
+            <TextView
+                android:id="@+id/tvLater"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:text="I'll decide later"
+                android:layout_below="@id/btnConfirm"
+                android:textColor="@color/secondary_text" />
+
+
+
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

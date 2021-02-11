@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextAppearance.App.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/cronus_round</item>
+        <item name="android:fontFamily">@font/cronus_round</item>
+        <item name="android:titleMarginBottom">1sp</item>
+        <item name="android:textSize">25sp</item>
+    </style>
+</resources>
