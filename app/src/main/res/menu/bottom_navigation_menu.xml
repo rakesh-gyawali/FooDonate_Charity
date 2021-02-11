@@ -11,7 +11,7 @@
         android:icon="@drawable/ic_care"
         android:title="Donate"/>
     <item
-        android:id="@+id/logs"
+        android:id="@+id/request"
         android:enabled="true"
         android:icon="@drawable/ic_log_file_format"
         android:title="Log"/>

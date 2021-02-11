@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.food_donation_dissertation">
+    package="com.example.foodonate_charity">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -24,8 +24,8 @@
         android:theme="@style/Theme.Food_Donation_Dissertation"
         android:usesCleartextTraffic="true"
         >
-        <activity android:name=".donate.LocationConfirm"></activity>
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name="com.example.foodonate_charity.donate.LocationConfirm"></activity>
+        <activity android:name="com.example.foodonate_charity.SplashScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,10 +38,10 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".donate.MapsActivity"
+            android:name="com.example.foodonate_charity.donate.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".WelcomeLocation" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name="com.example.foodonate_charity.WelcomeLocation" />
+        <activity android:name="com.example.foodonate_charity.MainActivity"></activity>
     </application>
 
 </manifest>
