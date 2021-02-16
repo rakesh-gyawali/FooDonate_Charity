@@ -31,26 +31,29 @@ public class SplashScreenActivity extends AppCompatActivity {
 
             @Override
             public void run() {
-               checkWhetherLocationHasBeenSavedOrNotAndStartActivityAccordingly();
+//               checkWhetherLocationHasBeenSavedOrNotAndStartActivityAccordingly();
+                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         }, TIMEOUT_MILLIS);
 
         Animation animFadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
         ivSplashLogo.startAnimation(animFadeIn);
     }
-    private void checkWhetherLocationHasBeenSavedOrNotAndStartActivityAccordingly() {
-        SharedPreferences savedData = getSharedPreferences("USER_LOCATION", Context.MODE_PRIVATE);
-        String addressLine =  savedData.getString("address_line", "");
-        if (addressLine.isEmpty()) {
-            Intent intent = new Intent(SplashScreenActivity.this, WelcomeLocation.class);
-            intent.putExtra("welcome_screen", true);
-            startActivity(intent);
-            finish();
-        } else {
-            Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-        //show check mark ...
-    }
+//    private void checkWhetherLocationHasBeenSavedOrNotAndStartActivityAccordingly() {
+//        SharedPreferences savedData = getSharedPreferences("USER_LOCATION", Context.MODE_PRIVATE);
+//        String addressLine =  savedData.getString("address_line", "");
+//        if (addressLine.isEmpty()) {
+//            Intent intent = new Intent(SplashScreenActivity.this, WelcomeLocation.class);
+//            intent.putExtra("welcome_screen", true);
+//            startActivity(intent);
+//            finish();
+//        } else {
+//            Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
+//            startActivity(intent);
+//            finish();
+//        }
+//        //show check mark ...
+//    }
 }
