@@ -28,6 +28,10 @@ public class DonateLogBLL {
     private Integer monthQuantity = 0;
     private Integer monthDonator = 0;
     private Integer totalDonator = 0;
+    private Integer cancelled = 0;
+    private Integer accepted = 0;
+    private Integer delivered = 0;
+    private Integer pending = 0;
 
     public DonateLogBLL(String token) {
         this.token = token;
@@ -89,9 +93,40 @@ public class DonateLogBLL {
                 monthQuantity += Integer.parseInt(log.getQuantity());
                 monthDonator++;
             }
+            switch (log.getStatus()) {
+                case "cancelled":
+                    cancelled++;
+                    break;
+                case "pending":
+                    pending++;
+                    break;
+                case "delivered":
+                    delivered++;
+                    break;
+                case "accepted":
+                    accepted++;
+                    break;
+            }
+
             totalQuantity += Integer.parseInt(log.getQuantity());
             totalDonator++;
         }
+    }
+
+    public Integer getCancelled() {
+        return cancelled;
+    }
+
+    public Integer getAccepted() {
+        return accepted;
+    }
+
+    public Integer getDelivered() {
+        return delivered;
+    }
+
+    public Integer getPending() {
+        return pending;
     }
 
     public Integer getTotalQuantity() {

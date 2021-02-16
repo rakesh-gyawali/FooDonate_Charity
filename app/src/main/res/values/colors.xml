@@ -12,6 +12,12 @@
     <color name="colorGreen">#55C185</color>
     <color name="red">#FF0000</color>
     <color name="colorGreyText">#808080</color>
+    <color name="colorDarkGrey">#a9a9a9</color>
+
+    <color name="colorAccepted">#8ac926</color>
+    <color name="colorCancelled">#ff595e</color>
+    <color name="colorPending">#ffca3a</color>
+    <color name="colorCompleted">#1982c4</color>
 
 
 
