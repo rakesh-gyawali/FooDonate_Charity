@@ -1,30 +1,38 @@
 package com.example.foodonate_charity.log.donateLogDevelopment;
 
 public class DonateLogResponse {
+    private String _id;
     private String requestedDate;
     private String pickUpDate;
     private String address;
     private String lats;
     private String longs;
     private String status;
-    private Charity charity;
-    private String user;
+    private User user;
     private String quantity;
     private String expiryDate;
     private String foodTypes;
 
-    public DonateLogResponse(String requestedDate, String pickUpDate, String address, String lats, String longs, String status, Charity charity, String user, String quantity, String expiryDate, String foodTypes) {
+    public DonateLogResponse(String _id, String requestedDate, String pickUpDate, String address, String lats, String longs, String status, User user, String quantity, String expiryDate, String foodTypes) {
+        this._id = _id;
         this.requestedDate = requestedDate;
         this.pickUpDate = pickUpDate;
         this.address = address;
         this.lats = lats;
         this.longs = longs;
         this.status = status;
-        this.charity = charity;
         this.user = user;
         this.quantity = quantity;
         this.expiryDate = expiryDate;
         this.foodTypes = foodTypes;
+    }
+
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
     }
 
     public String getRequestedDate() {
@@ -75,19 +83,11 @@ public class DonateLogResponse {
         this.status = status;
     }
 
-    public Charity getCharity() {
-        return charity;
-    }
-
-    public void setCharity(Charity charity) {
-        this.charity = charity;
-    }
-
-    public String getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public void setUser(User user) {
         this.user = user;
     }
 

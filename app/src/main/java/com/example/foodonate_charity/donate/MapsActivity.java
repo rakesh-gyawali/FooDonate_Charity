@@ -15,6 +15,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.foodonate_charity.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -25,6 +26,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 
@@ -37,9 +39,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 1;
     private FusedLocationProviderClient client;
     private SupportMapFragment supportMapFragment;
-    private Double selectedLat;
-    private Double selectedLong;
-    private  String addressLine;
+    private Double lats;
+    private Double longs;
+    private String addressLine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,45 +61,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setMyLocationLayerEnabled();
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
-        mMap.setOnCameraIdleListener(new GoogleMap.OnCameraIdleListener() {
-            @Override
-            public void onCameraIdle() {
-               CameraPosition cameraPosition =  mMap.getCameraPosition();
-               selectedLat = cameraPosition.target.latitude;
-               selectedLong = cameraPosition.target.longitude;
-            }
-        });
+        try {
+            lats = getIntent().getDoubleExtra("lats", 0);
+            longs = getIntent().getDoubleExtra("longs", 0);
+            LatLng latLng = new LatLng(lats, longs);
+            mMap.addMarker(new MarkerOptions().position(latLng).title("Donator"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Lats and Longs could not be extracted from intent ...", Toast.LENGTH_SHORT).show();
+        }
+
         //when user press button ....
         Button btnSetLocation = findViewById(R.id.btnSetLocation);
         btnSetLocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Geocoder selectedAddress = new Geocoder(getApplicationContext());
-                try {
-                    List<Address> addresses = selectedAddress.getFromLocation(selectedLat, selectedLong, 1);
-                    addressLine = addresses.get(0).getAddressLine(0);
-                    storeToSharedPreference();
-
-                    Intent intent = new Intent(getApplicationContext(), LocationConfirm.class);
-                    MapsActivity.this.finish();
-                    startActivity(intent);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                MapsActivity.this.finish();
             }
         });
     }
 
-    private void storeToSharedPreference() {
-        SharedPreferences sharedPreferences;
-
-        sharedPreferences = getSharedPreferences("USER_LOCATION", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("address_line", addressLine);
-        editor.putString("lat", String.valueOf(selectedLat));
-        editor.putString("long", String.valueOf(selectedLong));
-        editor.apply();
-    }
 
     public void setMyLocationLayerEnabled() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -114,13 +98,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void getCurrentLocation() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
                     1);
@@ -134,8 +111,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     supportMapFragment.getMapAsync(new OnMapReadyCallback() {
                         @Override
                         public void onMapReady(GoogleMap googleMap) {
-                            LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
+
                         }
                     });
                 } else {

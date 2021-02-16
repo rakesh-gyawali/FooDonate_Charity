@@ -14,7 +14,7 @@
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/topAppBar"
             android:layout_width="match_parent"
-            app:title="Profile Picture"
+            app:title="Charity Logo"
             app:titleTextColor="@color/black"
             app:titleMarginTop="0dp"
             app:titleMarginBottom="0dp"
@@ -33,21 +33,21 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             >
+
             <TextView
                 android:id="@+id/tvInst"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
                 android:layout_marginBottom="16dp"
-                android:textSize="18dp"
-                android:text="Upload profile picture (Optional)"
-                />
+                android:text="Upload charity logo"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18dp" />
             <ImageView
                 android:id="@+id/imgPP"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:layout_below="@+id/tvInst"
-                android:src="@drawable/profile"
+                android:src="@drawable/upload"
                 android:layout_marginBottom="16dp"
                 android:clickable="true"
                 />
@@ -60,16 +60,6 @@
                 android:layout_marginBottom="16dp"
                 android:textSize="16dp"
                 android:text="Select Image" />
-
-            <TextView
-                android:id="@+id/tvSkip"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textSize="18dp"
-                android:clickable="true"
-                android:text="SKIP"
-                android:layout_below="@id/btnSelect" />
 
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>

@@ -38,13 +38,29 @@
                 android:id="@+id/tfFname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Fist name"
+                android:hint="Name of Organization"
                 android:layout_marginBottom="16dp"
-                app:startIconDrawable="@drawable/ic_name"
+                app:startIconDrawable="@drawable/ic_organization"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtFirstname"
+                    android:id="@+id/edtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tfAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Address"
+                android:layout_below="@+id/tfFname"
+                android:layout_marginBottom="16dp"
+                app:startIconDrawable="@drawable/ic_placeholder"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     />
@@ -53,14 +69,14 @@
                 android:id="@+id/tfLname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Last name"
-                android:layout_below="@+id/tfFname"
+                android:hint="Email"
+                android:layout_below="@+id/tfAddress"
                 android:layout_marginBottom="16dp"
-                app:startIconDrawable="@drawable/ic_name"
+                app:startIconDrawable="@drawable/ic_email"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtLastName"
+                    android:id="@+id/edtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     />
@@ -69,7 +85,7 @@
                 android:id="@+id/tfPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Phone number"
+                android:hint="Contact Number"
                 android:layout_marginBottom="16dp"
                 app:startIconDrawable="@drawable/ic_phone_call"
                 android:layout_below="@+id/tfLname"

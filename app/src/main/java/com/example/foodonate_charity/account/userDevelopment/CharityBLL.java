@@ -10,31 +10,29 @@ import com.example.foodonate_charity.URL;
 import retrofit2.Call;
 import retrofit2.Response;
 
-public class UserBLL {
-    private String firstName;
-    private String lastName;
+public class CharityBLL {
+    private String charity;
     private String phoneNo;
     private String profilePicture;
 
-    private Response<UserResponse> response;
+    private Response<CharityResponse> response;
 
-    public UserBLL() {
+    public CharityBLL() {
     }
 
-    public UserBLL(String firstName, String lastName, String phoneNo) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public CharityBLL(String charity, String phoneNo) {
+        this.charity = charity;
         this.phoneNo = phoneNo;
     }
 
     public boolean checkGetUser() {
-        UserAPI api = URL.getInstance().create(UserAPI.class);
+        CharityAPI api = URL.getInstance().create(CharityAPI.class);
         String token = getTokenFromSharedPreference();
         if (token.isEmpty()) {
             Log.i("UserBLL", "TOKEN IS EMPTY ...");
             return false;
         }
-        Call<UserResponse> call = api.getUser(token);
+        Call<CharityResponse> call = api.getUser(token, "randomString");
         try {
              response = call.execute();
             if (response.isSuccessful()) {
@@ -46,7 +44,7 @@ public class UserBLL {
         return false;
     }
 
-    public UserResponse returnUser() {
+    public CharityResponse returnCharity() {
         return response.body();
     }
 

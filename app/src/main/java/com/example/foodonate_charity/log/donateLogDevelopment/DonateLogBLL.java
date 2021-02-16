@@ -1,8 +1,14 @@
 package com.example.foodonate_charity.log.donateLogDevelopment;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+
 import com.example.foodonate_charity.URL;
 import com.example.foodonate_charity.donate.requestDonateDevelopment.RequestDonateAPI;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import retrofit2.Call;
@@ -18,6 +24,10 @@ public class DonateLogBLL {
     private String quantity;
     private String expiryDate;
     private String foodTypes;
+    private Integer totalQuantity = 0;
+    private Integer monthQuantity = 0;
+    private Integer monthDonator = 0;
+    private Integer totalDonator = 0;
 
     public DonateLogBLL(String token) {
         this.token = token;
@@ -68,6 +78,36 @@ public class DonateLogBLL {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public void filerDashboard() throws ParseException {
+        for (DonateLogResponse log: getResponse.body()) {
+            @SuppressLint("SimpleDateFormat") SimpleDateFormat format = new SimpleDateFormat("E MMM dd");
+            Date date = format.parse(log.getRequestedDate());
+            if (date.getMonth() - new Date().getMonth() < 2) {
+                String s = log.getQuantity();
+                monthQuantity += Integer.parseInt(log.getQuantity());
+                monthDonator++;
+            }
+            totalQuantity += Integer.parseInt(log.getQuantity());
+            totalDonator++;
+        }
+    }
+
+    public Integer getTotalQuantity() {
+        return totalQuantity;
+    }
+
+    public Integer getMonthQuantity() {
+        return monthQuantity;
+    }
+
+    public Integer getMonthDonator() {
+        return monthDonator;
+    }
+
+    public Integer getTotalDonator() {
+        return totalDonator;
     }
 
     public List<DonateLogResponse> returnLogList() {

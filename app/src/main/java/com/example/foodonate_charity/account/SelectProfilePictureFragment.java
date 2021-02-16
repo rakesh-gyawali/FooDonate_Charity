@@ -22,19 +22,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.foodonate_charity.R;
 import com.example.foodonate_charity.URL;
 import com.example.foodonate_charity.account.uploadImageDevelopment.UploadImageBLL;
-import com.example.foodonate_charity.account.userRegistrationDevelopment.UserRegistrationBLL;
+import com.example.foodonate_charity.account.charityRegistrationDevelopment.UserRegistrationBLL;
 
 import static android.app.Activity.RESULT_OK;
 
 public class SelectProfilePictureFragment extends Fragment implements View.OnClickListener {
     private ImageView imgPP;
-    private TextView tvSkip;
     private Button btnSelect;
 
     private Integer CHOOSE_FROM_GALLERY = 0;
@@ -43,9 +41,11 @@ public class SelectProfilePictureFragment extends Fragment implements View.OnCli
     private String imagePath;
     private String file_name;
 
-    private String firstname;
-    private String lastname;
+    private String name;
+    private String email;
     private String phone;
+    private String address;
+    private String logo;
     private String password;
 
     private boolean isImageUploaded;
@@ -70,38 +70,28 @@ public class SelectProfilePictureFragment extends Fragment implements View.OnCli
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_select_profile_picture, container, false);
         imgPP = view.findViewById(R.id.imgPP);
-        tvSkip = view.findViewById(R.id.tvSkip);
         btnSelect = view.findViewById(R.id.btnSelect);
 
         btnSelect.setOnClickListener(this);
-        tvSkip.setOnClickListener(this);
-
+        imgPP.setOnClickListener(this);
         isImageUploaded = false;
         return view;
     }
 
-
     @Override
     public void onClick(View v) {
         getAddressFromSharedPreference();
-        switch (v.getId()) {
-            case R.id.btnSelect:
-                if (isImageUploaded)  {
-                    registerCall();
-                    return;
-                }
-                checkCameraPermission();
-                popUpSelectFromCameraOrGallery();
-                break;
-            case R.id.tvSkip:
-                break;
-
+        if (isImageUploaded)  {
+            registerCall();
+            return;
         }
+        checkCameraPermission();
+        popUpSelectFromCameraOrGallery();
     }
 
     private void registerCall() {
         URL.getStrictMode();
-        UserRegistrationBLL bll = new UserRegistrationBLL(phone, password, firstname, lastname, file_name);
+        UserRegistrationBLL bll = new UserRegistrationBLL(phone, password, name, email, logo, address);
         if (bll.checkRegister()) {
             Fragment profileFragment = new ProfileFragment();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -116,15 +106,15 @@ public class SelectProfilePictureFragment extends Fragment implements View.OnCli
 
     }
 
-
     private void getAddressFromSharedPreference() {
         SharedPreferences savedData = this.getActivity().getSharedPreferences("SIGN_UP", Context.MODE_PRIVATE);
-        firstname =  savedData.getString("firstname", "");
-        lastname =  savedData.getString("lastname", "");
+        name =  savedData.getString("name", "");
+        email =  savedData.getString("email", "");
         phone =  savedData.getString("phone", "");
+        address =  savedData.getString("address", "");
         password =  savedData.getString("password", "");
 
-        if (firstname.isEmpty() || lastname.isEmpty() || phone.isEmpty() || password.isEmpty()) {
+        if (name.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() || address.isEmpty()) {
             Toast.makeText(getContext(), "Error while getting value from shared preference ...", Toast.LENGTH_LONG).show();
         }
     }
@@ -170,7 +160,7 @@ public class SelectProfilePictureFragment extends Fragment implements View.OnCli
         uploadImageBLL.previewImage(imagePath, imgPP);
 
         if (uploadImageBLL.checkImageUpload(imagePath)) {
-            file_name = uploadImageBLL.returnFilename();
+            logo = uploadImageBLL.returnFilename();
             btnSelect.setText("Create Account");
             isImageUploaded = true;
             Toast.makeText(getContext(), "Image Uploaded", Toast.LENGTH_SHORT).show();

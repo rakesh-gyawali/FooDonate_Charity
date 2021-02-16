@@ -7,7 +7,7 @@
     >
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="170dp"
             app:cardCornerRadius="4dp"
             app:cardMaxElevation="2dp"
             android:layout_marginBottom="4dp"
@@ -17,7 +17,7 @@
                 android:layout_margin="8dp"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
                 <LinearLayout
                     android:id="@+id/llName"
                     android:layout_width="wrap_content"
@@ -30,9 +30,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingBottom="8dp"
-                        android:text="Name of Organization"
+                        android:text="Name of Person"
                         android:textColor="@color/black"
-                        android:textSize="24sp" />
+                        android:textSize="20sp" />
+                    <TextView
+                        android:id="@+id/tvContact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:paddingBottom="8dp"
+                        android:text="Contact" />
 
                     <TextView
                         android:id="@+id/tvRequestedOn"
@@ -56,24 +63,59 @@
                         android:layout_height="wrap_content"
                         android:textSize="16sp"
                         android:text="Location" />
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvFoodType"-->
+<!--                        android:paddingBottom="8dp"-->
+<!--                        android:textColor="@color/colorAddress"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:text="Food Type" />-->
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvQuantity"-->
+<!--                        android:paddingBottom="8dp"-->
+<!--                        android:textColor="@color/colorAddress"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:textSize="16sp"-->
+<!--                        android:text="Quantity" />-->
+
+
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/llName"
-                    android:orientation="vertical"
-                    >
-                <TextView
-                    android:id="@+id/tvStatus"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:textSize="20sp"
-                    android:fontFamily="@font/chakrapetch_regular"
-                    android:textColor="@color/colorAddress"
-                    android:text="Status"
-                    />
-                </LinearLayout>
+
+
+                    <RelativeLayout
+                        android:id="@+id/rlRight"
+                        android:layout_toRightOf="@id/llName"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_alignParentRight="true"
+                            >
+                            <TextView
+                                android:id="@+id/tvStatus"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="20sp"
+                                android:layout_gravity="center_horizontal"
+                                android:fontFamily="@font/chakrapetch_regular"
+                                android:textColor="@color/colorAddress"
+                                android:text="Status"
+                                />
+                            <Button
+                                android:id="@+id/btnDetail"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="13sp"
+                                android:layout_marginTop="68dp"
+                                android:text="@string/right_arrow"
+                                />
+                        </LinearLayout>
+                    </RelativeLayout>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 </RelativeLayout>

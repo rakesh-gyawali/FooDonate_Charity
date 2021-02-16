@@ -15,33 +15,19 @@
         android:layout_centerInParent="true"
         tools:context=".donate.MapsActivity" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="1dp"
-        android:layout_height="1dp"
-        android:layout_centerInParent="true" />
-
-    <ImageView
-        android:id="@+id/confirm_address_map_custom_marker"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_above="@+id/view"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_placeholder_2_" />
-
     <Button
         android:id="@+id/btnSetLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="55dp"
+        android:paddingLeft="35dp"
         android:fontFamily="@font/roboto_regular"
-        android:paddingRight="55dp"
+        android:paddingRight="35dp"
         android:layout_marginBottom="16dp"
         android:layout_alignBottom="@id/map"
         android:layout_centerHorizontal="true"
         android:background="@color/colorAddress"
         android:foregroundGravity="bottom"
         android:textColor="@color/white"
-        android:text="set location" />
+        android:text="Back" />
 
 </RelativeLayout>

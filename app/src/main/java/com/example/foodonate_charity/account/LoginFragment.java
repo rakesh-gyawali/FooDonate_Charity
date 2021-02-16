@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.example.foodonate_charity.R;
 import com.example.foodonate_charity.URL;
-import com.example.foodonate_charity.account.userRegistrationDevelopment.UserRegistrationBLL;
+import com.example.foodonate_charity.account.charityRegistrationDevelopment.UserRegistrationBLL;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -30,8 +30,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private String phoneNo;
     private String password;
-    private String firstname;
-    private String lastname;
+
     final private String TAG = "LoginFragment";
     public LoginFragment() {
         // Required empty public constructor
@@ -74,8 +73,6 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 password = edtPassword.getText().toString();
                 loginCall();
                 break;
-
-
         }
     }
 

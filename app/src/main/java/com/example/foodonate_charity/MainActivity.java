@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import com.example.foodonate_charity.account.LoginFragment;
 import com.example.foodonate_charity.account.ProfileFragment;
 import com.example.foodonate_charity.donate.DonateFragment;
+import com.example.foodonate_charity.home.HomeCharityFragment;
 import com.example.foodonate_charity.home.HomeFragment;
 import com.example.foodonate_charity.log.LogFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -27,18 +28,19 @@ BottomNavigationView bottom_navigation;
 
         setContentView(R.layout.activity_main);
         bottom_navigation = findViewById(R.id.bottom_navigation);
-        openFragment(new HomeFragment());
+        openFragment(new HomeCharityFragment());
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.home:
-                        openFragment(new HomeFragment());
+//                        openFragment(new HomeFragment());
+                        openFragment(new HomeCharityFragment());
                         return true;
-                    case R.id.donate:
-                        openFragment(new DonateFragment());
-                        return true;
+//                    case R.id.donate:
+//                        openFragment(new DonateFragment());
+//                        return true;
                     case R.id.request:
                         openFragment(new LogFragment());
                         return true;

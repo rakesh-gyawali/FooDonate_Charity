@@ -20,7 +20,7 @@ import android.widget.Toast;
 import com.example.foodonate_charity.R;
 import com.example.foodonate_charity.URL;
 import com.example.foodonate_charity.account.uploadImageDevelopment.UploadImageBLL;
-import com.example.foodonate_charity.account.userDevelopment.UserBLL;
+import com.example.foodonate_charity.account.userDevelopment.CharityBLL;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import java.io.IOException;
@@ -32,7 +32,7 @@ public class ProfileFragment extends Fragment {
     private TextView tvName;
     private TextView tvPhoneNo;
     private MaterialToolbar toolbar;
-    private String profilePicture = "";
+    private String logo = "";
     private CircleImageView imgProfile;
     public ProfileFragment() {
         // Required empty public constructor
@@ -77,11 +77,11 @@ public class ProfileFragment extends Fragment {
     }
     private void userCall() {
         URL.getStrictMode();
-        UserBLL bll = new UserBLL();
+        CharityBLL bll = new CharityBLL();
         if (bll.checkGetUser()) {
-            tvName.setText(bll.returnUser().getFirstName() + " " +  bll.returnUser().getLastName());
-            tvPhoneNo.setText( bll.returnUser().getPhoneNo());
-            profilePicture = bll.returnUser().getProfilePicture();
+            tvName.setText(bll.returnCharity().getName());
+            tvPhoneNo.setText( bll.returnCharity().getPhoneNo());
+            logo = bll.returnCharity().getLogo();
 
             profilePictureCall();
 
@@ -93,11 +93,11 @@ public class ProfileFragment extends Fragment {
 
     private void profilePictureCall() {
         // if no profile picture then ...
-        if (profilePicture == null) return;
+        if (logo == null) return;
         // if there is profile picture ...
         UploadImageBLL imageBLL = new UploadImageBLL();
         imageBLL.MakeStrict();
-        String imagePath = URL.IMAGE_BASE_URL +"uploads/" + profilePicture;
+        String imagePath = URL.IMAGE_BASE_URL +"uploads/" + logo;
         try {
             java.net.URL url = new java.net.URL(imagePath);
             Bitmap bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());

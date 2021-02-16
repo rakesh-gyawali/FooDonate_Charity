@@ -23,14 +23,16 @@ public class SignUpFragment extends Fragment {
 
     private TextView tvLogin;
 
-    private EditText edtFirstname;
-    private TextView edtLastname;
+    private EditText edtName;
+    private TextView edtAddress;
     private TextView edtPhone;
+    private TextView edtEmail;
     private TextView edtPassword;
 
-    private String firstname;
-    private String lastname;
+    private String name;
+    private String address;
     private String phone;
+    private String email;
     private String password;
 
     public SignUpFragment() {
@@ -50,8 +52,9 @@ public class SignUpFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_sign_up, container, false);
         btnNext = view.findViewById(R.id.btnNext);
         tvLogin = view.findViewById(R.id.tvLogin);
-        edtFirstname = view.findViewById(R.id.edtFirstname);
-        edtLastname = view.findViewById(R.id.edtLastName);
+        edtName = view.findViewById(R.id.edtName);
+        edtAddress = view.findViewById(R.id.edtAddress);
+        edtEmail = view.findViewById(R.id.edtEmail);
         edtPhone = view.findViewById(R.id.edtPhone);
         edtPassword = view.findViewById(R.id.edtPassword);
 
@@ -83,19 +86,20 @@ public class SignUpFragment extends Fragment {
         getValuesFromEditText();
        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("SIGN_UP", MODE_PRIVATE);
        SharedPreferences.Editor editor = sharedPreferences.edit();
-       editor.putString("firstname", firstname);
-       editor.putString("lastname", lastname);
+       editor.putString("name", name);
+       editor.putString("address", address);
        editor.putString("phone", phone);
+       editor.putString("email", email);
        editor.putString("password", password);
        editor.apply();
     }
     private void getValuesFromEditText() {
-        firstname = edtFirstname.getText().toString();
-        lastname = edtLastname.getText().toString();
+        name = edtName.getText().toString();
+        address = edtAddress.getText().toString();
         phone = edtPhone.getText().toString();
+        email = edtEmail.getText().toString();
         password = edtPassword.getText().toString();
     }
-
 
     private boolean validateInputs() {
         return true;

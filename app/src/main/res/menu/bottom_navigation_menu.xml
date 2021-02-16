@@ -3,13 +3,12 @@
         android:id="@+id/home"
         android:enabled="true"
         android:icon="@drawable/ic_home"
-
         android:title="Home"/>
-    <item
-        android:id="@+id/donate"
-        android:enabled="true"
-        android:icon="@drawable/ic_care"
-        android:title="Donate"/>
+<!--    <item-->
+<!--        android:id="@+id/donate"-->
+<!--        android:enabled="true"-->
+<!--        android:icon="@drawable/ic_care"-->
+<!--        android:title="Donate"/>-->
     <item
         android:id="@+id/request"
         android:enabled="true"

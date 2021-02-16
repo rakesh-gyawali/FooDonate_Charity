@@ -43,6 +43,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         String addressLine =  savedData.getString("address_line", "");
         if (addressLine.isEmpty()) {
             Intent intent = new Intent(SplashScreenActivity.this, WelcomeLocation.class);
+            intent.putExtra("welcome_screen", true);
             startActivity(intent);
             finish();
         } else {

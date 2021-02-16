@@ -1,16 +1,14 @@
-package com.example.foodonate_charity.account.userDevelopment;
+package com.example.foodonate_charity.log.donateLogDevelopment;
 
-public class UserResponse {
-    private String phoneNo;
-    private String firstName;
-    private String lastName;
-    private String profilePicture;
+public class User {
+   private String phoneNo;
+   private String firstName;
+   private String lastName;
 
-    public UserResponse(String phoneNo, String firstName, String lastName, String profilePicture) {
+    public User(String phoneNo, String firstName, String lastName) {
         this.phoneNo = phoneNo;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.profilePicture = profilePicture;
     }
 
     public String getPhoneNo() {
@@ -35,13 +33,5 @@ public class UserResponse {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getProfilePicture() {
-        return profilePicture;
-    }
-
-    public void setProfilePicture(String profilePicture) {
-        this.profilePicture = profilePicture;
     }
 }

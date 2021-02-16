@@ -49,7 +49,7 @@ public class LogFragment extends Fragment {
         mSwitch = view.findViewById(R.id.mSwitch);
         rcvLog = view.findViewById(R.id.rcvLog);
         rcvLog.setLayoutManager(new LinearLayoutManager(getContext()));
-         logSyncCall();
+        logSyncCall();
 
         mSwitch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,17 +102,17 @@ public class LogFragment extends Fragment {
         DonateLogBLL bll = new DonateLogBLL(getTokenFromSharedPreference());
         if (bll.checkGetLog()) {
             donateLogList =  bll.returnLogList();
-                    for (DonateLogResponse log: donateLogList) {
-                        if (log.getStatus().equals("cancelled") || log.getStatus().equals("delivered")) {
-                            donateLogToggledList.add(log);
-                        } else if (log.getStatus().equals("pending") || log.getStatus().equals("accepted")) {
-                            donateLogUnToggledList.add(log);
-                        }
-                    }
-                    if (mSwitch.isChecked()) donateLogList = donateLogToggledList;
-                    else donateLogList = donateLogUnToggledList;
-                    adapter = new LogAdapter(donateLogList, mSwitch.isChecked(), getContext());
-                    rcvLog.setAdapter(adapter);
+            for (DonateLogResponse log: donateLogList) {
+                if (log.getStatus().equals("cancelled") || log.getStatus().equals("delivered")) {
+                    donateLogToggledList.add(log);
+                } else if (log.getStatus().equals("pending") || log.getStatus().equals("accepted")) {
+                    donateLogUnToggledList.add(log);
+                }
+            }
+            if (mSwitch.isChecked()) donateLogList = donateLogToggledList;
+            else donateLogList = donateLogUnToggledList;
+            adapter = new LogAdapter(donateLogList, mSwitch.isChecked(), getContext());
+            rcvLog.setAdapter(adapter);
         }
     }
 

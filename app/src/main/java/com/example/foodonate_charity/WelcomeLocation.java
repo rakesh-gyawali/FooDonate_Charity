@@ -51,7 +51,13 @@ public class WelcomeLocation extends AppCompatActivity implements View.OnClickLi
                  break;
             case R.id.tvAddress:
                 Log.i(TAG, "tvAddress is pressed");
-                intent = new Intent(getApplicationContext(), MapsActivity.class);
+                intent = new Intent(getApplicationContext(), MapsActivity.class); //use intent.extra to distinguish ...
+                try {
+                    Boolean isFromWelcomeScreen =  getIntent().getBooleanExtra("welcome_screen", false);
+                    if (isFromWelcomeScreen)  intent.putExtra("welcome_screen", true);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
                  startActivity(intent);
                  break;
             case R.id.btnConfirm:
@@ -62,6 +68,7 @@ public class WelcomeLocation extends AppCompatActivity implements View.OnClickLi
                 }
             case R.id.tvLater:
                 intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
         }
     }
 
