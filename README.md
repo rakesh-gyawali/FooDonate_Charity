@@ -14,15 +14,15 @@ With the app user can send pick up request to the charity to collect the foods t
 
 ## Preview
 <div align="center">
-    <img src="https://github.com/rakesh-gyawali/FooDonate_User/blob/master/screenshots/splash_screen_user.jpg" width="300px"</img> 
-    <img src="https://github.com/rakesh-gyawali/FooDonate_User/blob/master/screenshots/Login.jpg" width="300px"</img> 
-    <img src="https://github.com/rakesh-gyawali/FooDonate_User/blob/master/screenshots/signup.jpg" width="300px"</img> 
-    <img src="https://github.com/rakesh-gyawali/FooDonate_User/blob/master/screenshots/home_user.jpg" width="300px"</img> 
-    <img src="https://github.com/rakesh-gyawali/FooDonate_User/blob/master/screenshots/donate_user.jpg" width="300px"</img> 
-    <img src="https://github.com/rakesh-gyawali/FooDonate_User/blob/master/screenshots/confirm_location.jpg" width="300px"</img> 
-    <img src="https://github.com/rakesh-gyawali/FooDonate_User/blob/master/screenshots/googlemap.jpg" width="300px"</img> 
-    <img src="https://github.com/rakesh-gyawali/FooDonate_User/blob/master/screenshots/Log.jpg" width="300px"</img> 
-    <img src="https://github.com/rakesh-gyawali/FooDonate_User/blob/master/screenshots/profile_user.jpg" width="300px"</img>
+    <img src="https://github.com/rakesh-gyawali/FooDonate_Charity/blob/master/screenshots/splash_screen_charity.jpg" width="300px"</img> 
+    <img src="https://github.com/rakesh-gyawali/FooDonate_Charity/blob/master/screenshots/Screenshot_2021-03-20-20-34-13-190_com.example.foodonate_charity.jpg" 
+         width="300px"</img> 
+    <img src="https://github.com/rakesh-gyawali/FooDonate_Charity/blob/master/screenshots/Screenshot_2021-03-20-20-53-02-619_com.example.foodonate_charity.jpg" width="300px"</img> 
+         <img src="https://github.com/rakesh-gyawali/FooDonate_Charity/blob/master/screenshots/Screenshot_2021-03-20-21-00-50-454_com.example.foodonate_charity.jpg" width="300px"</img>
+        <img src="https://github.com/rakesh-gyawali/FooDonate_Charity/blob/master/screenshots/dashboard.jpg" width="300px"</img>
+    <img src="https://github.com/rakesh-gyawali/FooDonate_Charity/blob/master/screenshots/Screenshot_2021-03-20-20-36-14-036_com.example.foodonate_charity.jpg"  width="300px"</img>  
+    <img src="https://github.com/rakesh-gyawali/FooDonate_Charity/blob/master/screenshots/Screenshot_2021-03-20-20-55-51-554_com.example.foodonate_charity.jpg" width="300px"</img> 
+    <img src="https://github.com/rakesh-gyawali/FooDonate_Charity/blob/master/screenshots/Screenshot_2021-03-20-20-56-06-755_com.example.foodonate_charity.jpg" width="300px"</img>  
 </div>
 
 ## Main features
