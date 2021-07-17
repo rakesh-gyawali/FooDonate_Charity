@@ -69,7 +69,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15));
         } catch (Exception e) {
             e.printStackTrace();
-            Toast.makeText(this, "Lats and Longs could not be extracted from intent ...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Lats and Longs could not be extracted from intent ...",
+                    Toast.LENGTH_SHORT).show();
         }
 
         //when user press button ....
@@ -81,7 +82,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
     }
-
 
     public void setMyLocationLayerEnabled() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)

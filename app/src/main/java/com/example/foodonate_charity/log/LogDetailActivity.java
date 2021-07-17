@@ -103,11 +103,14 @@ public class LogDetailActivity extends AppCompatActivity {
                     new DatePickerDialog(LogDetailActivity.this, date, myCalendar
                             .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                             myCalendar.get(Calendar.DAY_OF_MONTH)).show();
+
+
+
                 } else {
                     putAsyncCall("delivered");
+                    finish();
 
                 }
-                finish();
             }
         });
     }

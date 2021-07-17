@@ -9,8 +9,9 @@ public class URL {
     public static String token = "";
     //--------- Connect from Emulator ----------
 //    public static String BASE_URL = "http://10.0.2.2:3001/api/";
+//    public static final String IMAGE_BASE_URL = "http://10.0.2.2:3001/";
 
-    public static String ipAddressOfYourHost = "192.168.0.6";
+    public static String ipAddressOfYourHost = "192.168.0.11";
     public static final String BASE_URL = "http://" + ipAddressOfYourHost + ":3001/api/";
     public static final String IMAGE_BASE_URL = "http://" + ipAddressOfYourHost + ":3001/";
 
